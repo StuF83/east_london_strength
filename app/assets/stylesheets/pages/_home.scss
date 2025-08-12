@@ -1,0 +1,60 @@
+/* Home Page */
+
+.hero {
+  background: $color-bg-alt;
+  padding: $space-3xl $space-lg;
+  text-align: center;
+
+  &__heading {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: $space-sm;
+    color: $color-text;
+  }
+
+  &__subheading {
+    font-size: 1.2rem;
+    max-width: 640px;
+    margin: 0 auto;
+    color: $color-text-light;
+  }
+}
+
+.intro {
+  background: $color-bg;
+  padding: $space-2xl $space-lg;
+
+  &__content {
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+
+    p { margin-bottom: 1.25rem; }
+  }
+}
+
+/* Optional audience cards if/when used */
+.audience {
+  background: $color-bg-subtle;
+  padding: $space-2xl $space-lg;
+
+  &__grid { @extend .cards-grid; }
+  &__card { @extend .card; }
+}
+
+/* CTA with improved contrast */
+.cta {
+  background: #fafafa;
+  color: $color-text;
+  padding: $space-2xl $space-lg;
+  text-align: center;
+  border-top: 1px solid #eee;
+
+  &__content {
+    max-width: 640px;
+    margin: 0 auto;
+
+    h2 { font-size: 1.75rem; margin-bottom: $space-sm; }
+    p  { font-size: 1.1rem;  margin-bottom: $space-lg; }
+  }
+}

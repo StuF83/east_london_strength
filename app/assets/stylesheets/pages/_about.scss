@@ -1,0 +1,28 @@
+/* About Page */
+
+.page-about {
+  padding: $space-2xl 0;
+
+  .page-title {
+    font-size: 2rem;
+    margin-bottom: $space-2xl;
+    text-align: center;
+    color: $color-text;
+  }
+
+  .about-content {
+    max-width: 760px;
+    margin: 0 auto;
+    line-height: 1.8;
+    color: $color-text-light;
+
+    p + p { margin-top: 1.25rem; }
+  }
+}
+
+.about-photo {
+  max-width: 220px;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto $space-lg;
+}

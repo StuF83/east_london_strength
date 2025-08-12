@@ -1,0 +1,73 @@
+.page-services {
+  padding: $space-2xl 0;
+
+  .page-title {
+    font-size: 2rem;
+    margin-bottom: $space-2xl;
+    text-align: center;
+    color: $color-text;
+  }
+
+  .cards-grid { @extend .cards-grid; }
+  .card       { @extend .card; }
+
+  .services-intro {
+    max-width: 760px;
+    margin: 0 auto $space-2xl;
+    line-height: 1.8;
+    text-align: center;
+    color: $color-text-light;
+  }
+
+  .services-sections {
+    max-width: 820px;
+    margin: 0 auto;
+  }
+
+  .service-section {
+    padding: $space-xl 0;
+    border-top: 1px solid #eee;
+
+    &:first-child { border-top: 0; }
+
+    h2 {
+      font-size: 1.6rem;
+      margin-bottom: $space-sm;
+      color: $color-text;
+    }
+
+    p { color: $color-text-light; }
+
+    ul {
+      margin: $space-sm 0 $space-lg;
+      padding: 0;
+      list-style: none;
+
+      li {
+        position: relative;
+        padding-left: 1.25rem;
+        margin-bottom: .5rem;
+        color: $color-text-light;
+
+        &::before {
+          content: "•";
+          position: absolute;
+          left: 0;
+          color: $color-primary;
+        }
+      }
+    }
+  }
+
+  .service-backtotop {
+    text-align: center;
+    margin-top: $space-xl;
+
+    a {
+      color: #666;
+      text-decoration: none;
+
+      &:hover { text-decoration: underline; }
+    }
+  }
+}

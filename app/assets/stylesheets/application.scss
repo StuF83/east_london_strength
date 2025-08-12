@@ -1,0 +1,17 @@
+// Sassy
+@import "base/variables";
+@import "base/reset";
+@import "base/typography";
+@import "base/layout";
+
+@import "layout/header-footer";
+
+@import "components/buttons";
+@import "components/cards";
+@import "components/testimonials";
+
+@import "pages/home";
+@import "pages/about";
+@import "pages/train_with_me";
+@import "pages/contact";
+@import "pages/testimonials";

@@ -1,0 +1,49 @@
+.site-header {
+  background: $color-bg;
+  border-bottom: 1px solid $color-border;
+  padding: $space-md 0;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__brand {
+    font-size: 1.25rem;
+    font-weight: 600;
+
+    a {
+      color: $color-text;
+      text-decoration: none;
+    }
+  }
+}
+
+.site-nav__list {
+  display: flex;
+  gap: $space-lg;
+
+  li a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+}
+
+.site-footer {
+  background: #f8f8f8;
+  padding: $space-xl 0;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+
+  &__inner {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+}

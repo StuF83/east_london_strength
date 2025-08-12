@@ -1,0 +1,37 @@
+.page-testimonials {
+  padding: $space-2xl 0;
+
+  .page-title {
+    font-size: 2rem;
+    margin-bottom: $space-xl;
+    text-align: center;
+    color: $color-text;
+  }
+
+  .testi-filter {
+    display: flex;
+    justify-content: center;
+    gap: $space-lg;
+    margin-bottom: $space-xl;
+
+    a {
+      color: $color-primary;
+      text-decoration: none;
+
+      &:hover { text-decoration: underline; }
+    }
+  }
+
+  .testi-group {
+    padding: $space-xl 0;
+    border-top: 1px solid #eee;
+
+    &:first-of-type { border-top: 0; }
+
+    h2 {
+      font-size: 1.4rem;
+      margin-bottom: $space-md;
+      color: $color-text;
+    }
+  }
+}

@@ -1,0 +1,40 @@
+.cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-lg;
+  max-width: 980px;
+  margin: 0 auto $space-2xl;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Works for <a class="card"> and <div class="card"> */
+.card {
+  display: block;
+  background: $color-bg;
+  border: 1px solid $color-border;
+  border-radius: 8px;
+  padding: $space-lg;
+  text-align: center;
+  text-decoration: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.1s ease;
+
+  h3 {
+    margin-top: 0;
+    color: $color-text;
+    font-size: 1.25rem;
+  }
+
+  p {
+    color: $color-text-light;
+    margin: 0;
+  }
+
+  &:hover {
+    border-color: $color-primary;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+    transform: translateY(-1px);
+  }
+}

@@ -1,9 +1,12 @@
-<section class="hero">
+<section class="hero" aria-labelledby="hero-title">
   <div class="container">
-    <h1 class="hero__heading">Fieldworks Strength</h1>
-    <p class="hero__subheading">
-      Strength coaching that helps you move better, feel stronger, and train for the long haul.
-    </p>
+    <h1 id="hero-title" class="hero__heading">SF Strength</h1>
+    <p class="hero__subheading">Strength Coaching by Stuart Frew</p>
+
+    <div class="hero__actions">
+      <a class="btn" href="<%= contact_path %>" aria-label="Book a call to get started">Book a call</a>
+      <a class="btn btn--secondary" href="<%= train_with_me_path %>">How I work</a>
+    </div>
   </div>
 </section>
 
@@ -36,10 +39,9 @@
   </div>
 </section>
 
-<!-- Carousel -->
 <section class="testi-preview section">
   <div class="container">
-    <h2 class="section-heading" style="text-align:center;margin-bottom:1rem;">What clients say</h2>
+    <h2 class="section-heading">What clients say</h2>
 
     <div class="testi-carousel" aria-label="Client testimonials">
       <article class="testi-slide">
@@ -56,15 +58,26 @@
       </article>
     </div>
 
-    <div class="testi-actions" style="text-align:center;margin-top:1rem;">
+    <div class="testi-actions">
       <a class="btn" href="<%= testimonials_path %>">Read more</a>
     </div>
   </div>
 </section>
 
-
-<section class="cta">
+<section class="cta" aria-labelledby="cta-title">
   <div class="container cta__content">
-    <h2>Curious?</h2>
-    <p>If you’re looking for a mor
+    <h2 id="cta-title">Curious?</h2>
+    <p>If you’re looking for a more sustainable way to get stronger — without chasing numbers for their own sake — let’s talk.</p>
 
+    <ul class="cta__bullets" role="list">
+      <li>Free 15-minute call to see if we’re a good fit</li>
+      <li>Studio sessions in East London (Hackney)</li>
+      <li>Strength work that supports everyday life and endurance goals</li>
+    </ul>
+
+    <div class="cta__actions">
+      <a class="btn" href="<%= contact_path %>">Book a call</a>
+      <a class="btn btn--secondary" href="<%= about_path %>">About Stuart</a>
+    </div>
+  </div>
+</section>

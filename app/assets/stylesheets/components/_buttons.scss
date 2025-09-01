@@ -12,3 +12,13 @@
     background: $color-primary-dark;
   }
 }
+
+.btn--secondary {
+  background: transparent;
+  color: $color-text;
+  border: 1px solid $color-border;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.04);
+  }
+}

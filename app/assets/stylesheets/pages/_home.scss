@@ -1,15 +1,20 @@
 /* Home Page */
 
+/* ------------------------------------ */
+/* HERO                                 */
+/* ------------------------------------ */
 .hero {
   background: $color-bg-alt;
   padding: $space-3xl $space-lg;
   text-align: center;
 
   &__heading {
-    font-size: 2.5rem;
+    /* keeps your intent but scales nicer across viewports */
+    font-size: clamp(2rem, 6vw, 3rem);
     font-weight: 700;
     margin-bottom: $space-sm;
     color: $color-text;
+    letter-spacing: -0.01em;
   }
 
   &__subheading {
@@ -18,8 +23,20 @@
     margin: 0 auto;
     color: $color-text-light;
   }
+
+  /* NEW: action row for hero buttons */
+  &__actions {
+    display: inline-flex;
+    gap: $space-sm;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: $space-sm;
+  }
 }
 
+/* ------------------------------------ */
+/* INTRO                                */
+/* ------------------------------------ */
 .intro {
   background: $color-bg;
   padding: $space-2xl $space-lg;
@@ -33,7 +50,9 @@
   }
 }
 
-/* Optional audience cards if/when used */
+/* ------------------------------------ */
+/* AUDIENCE                             */
+/* ------------------------------------ */
 .audience {
   background: $color-bg-subtle;
   padding: $space-2xl $space-lg;
@@ -42,7 +61,43 @@
   &__card { @extend .card; }
 }
 
-/* CTA with improved contrast */
+/* ------------------------------------ */
+/* TESTIMONIALS PREVIEW                 */
+/* ------------------------------------ */
+.testi-preview {
+  padding: $space-2xl $space-lg;
+
+  .section-heading {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .testi-carousel {
+    display: grid;
+    gap: 1rem;
+
+    @media (min-width: 720px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .testi-slide {
+    @extend .card;
+    padding: $space-md $space-lg;
+
+    p { margin: 0 0 0.5rem 0; }
+    footer { color: $color-text-light; font-size: 0.95rem; }
+  }
+
+  .testi-actions {
+    text-align: center;
+    margin-top: 1rem;
+  }
+}
+
+/* ------------------------------------ */
+/* CTA                                  */
+/* ------------------------------------ */
 .cta {
   background: #fafafa;
   color: $color-text;
@@ -57,4 +112,32 @@
     h2 { font-size: 1.75rem; margin-bottom: $space-sm; }
     p  { font-size: 1.1rem;  margin-bottom: $space-lg; }
   }
+
+  /* NEW: bullets list */
+  &__bullets {
+    text-align: left;
+    margin: $space-md auto $space-lg;
+    padding-left: 1.25rem;
+    max-width: 46ch;
+
+    li { margin: 0.25rem 0; }
+  }
+
+  /* NEW: action row */
+  &__actions {
+    display: inline-flex;
+    gap: $space-sm;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* ------------------------------------ */
+/* UTILITIES                            */
+/* ------------------------------------ */
+
+/* If you want a consistent section heading style on home */
+.section-heading {
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  margin: 0 0 0.75rem 0;
 }

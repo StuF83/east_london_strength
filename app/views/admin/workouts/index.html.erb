@@ -1,0 +1,53 @@
+<section class="admin-workouts">
+  <div class="container">
+    <header class="admin-header">
+      <h1 class="admin-title">Workouts</h1>
+      <div class="admin-actions">
+        <%= link_to "New Workout", new_admin_workout_path, class: "btn" %>
+      </div>
+    </header>
+
+    <% if @workouts.any? %>
+      <div class="workouts-list">
+        <% @workouts.each do |workout| %>
+          <article class="workout-card">
+            <header class="workout-card__header">
+              <h3 class="workout-card__date">
+                <%= workout.date.strftime("%A, %B %d, %Y") %>
+                <% if workout.is_fallback? %>
+                  <span class="workout-card__fallback">Fallback</span>
+                <% end %>
+              </h3>
+              <% if workout.title.present? %>
+                <p class="workout-card__title"><%= workout.title %></p>
+              <% end %>
+            </header>
+
+            <div class="workout-card__meta">
+              <% if workout.tags.present? %>
+                <span class="workout-card__tags"><%= workout.tags %></span>
+              <% end %>
+            </div>
+
+            <div class="workout-card__actions">
+              <%= link_to "View", admin_workout_path(workout), class: "btn btn--secondary" %>
+              <%= link_to "Edit", edit_admin_workout_path(workout), class: "btn btn--secondary" %>
+              <%= link_to "Delete", admin_workout_path(workout), 
+                  method: :delete,
+                  class: "btn btn--danger",
+                  data: { 
+                    "turbo-method": :delete,
+                    "turbo-confirm": "Are you sure?" 
+                  } %>
+            </div>
+          </article>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="empty-state">
+        <p>No workouts yet.</p>
+        <%= link_to "Create your first workout", new_admin_workout_path, class: "btn" %>
+      </div>
+    <% end %>
+  </div>
+</section>

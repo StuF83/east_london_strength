@@ -1,0 +1,366 @@
+/* Admin Workouts */
+
+.admin-workouts,
+.admin-workout-form {
+  padding: $space-2xl 0;
+  min-height: 70vh;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $space-2xl;
+  padding-bottom: $space-lg;
+  border-bottom: 1px solid $color-border;
+
+  .admin-title {
+    font-size: 1.75rem;
+    margin: 0;
+    color: $color-text;
+  }
+
+  .admin-actions {
+    display: flex;
+    gap: $space-sm;
+  }
+}
+
+/* Workout List */
+.workouts-list {
+  display: grid;
+  gap: $space-lg;
+}
+
+.workout-card {
+  background: $color-bg;
+  border: 1px solid $color-border;
+  border-radius: 8px;
+  padding: $space-lg;
+
+  &__header {
+    margin-bottom: $space-md;
+  }
+
+  &__date {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0 0 $space-xs 0;
+    color: $color-text;
+    display: flex;
+    align-items: center;
+    gap: $space-sm;
+  }
+
+  &__fallback {
+    background: #fef3c7;
+    color: #92400e;
+    padding: 0.125rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+
+  &__title {
+    margin: 0;
+    color: $color-text-light;
+    font-style: italic;
+  }
+
+  &__meta {
+    margin-bottom: $space-lg;
+  }
+
+  &__tags {
+    color: $color-primary;
+    font-size: 0.9rem;
+  }
+
+  &__actions {
+    display: flex;
+    gap: $space-sm;
+    flex-wrap: wrap;
+  }
+}
+
+/* Workout Form */
+.workout-form {
+  max-width: 800px;
+
+  .form-group {
+    margin-bottom: $space-lg;
+
+    &--checkbox {
+      display: flex;
+      align-items: flex-start;
+      gap: $space-sm;
+      margin-bottom: $space-md;
+    }
+  }
+
+  .form-label {
+    display: block;
+    margin-bottom: $space-xs;
+    font-weight: 500;
+    color: $color-text;
+
+    &--checkbox {
+      margin-bottom: 0;
+      font-weight: normal;
+      cursor: pointer;
+    }
+  }
+
+  .form-input,
+  .form-textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid $color-border;
+    border-radius: 6px;
+    background: $color-bg;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.2s ease;
+
+    &:focus {
+      outline: none;
+      border-color: $color-primary;
+      box-shadow: 0 0 0 3px rgba($color-primary, 0.1);
+    }
+  }
+
+  .form-textarea {
+    font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+    line-height: 1.5;
+    resize: vertical;
+  }
+
+  .form-checkbox {
+    margin: 0;
+    margin-top: 0.25rem;
+  }
+
+  .form-help {
+    display: block;
+    margin-top: $space-xs;
+    font-size: 0.875rem;
+    color: $color-text-light;
+  }
+
+  .form-actions {
+    display: flex;
+    gap: $space-sm;
+    margin-top: $space-xl;
+    flex-wrap: wrap;
+  }
+
+  .form-errors {
+    background: #fee2e2;
+    border: 1px solid #fecaca;
+    border-radius: 6px;
+    padding: $space-lg;
+    margin-bottom: $space-lg;
+
+    h4 {
+      margin: 0 0 $space-sm 0;
+      color: #dc2626;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: $space-lg;
+      color: #dc2626;
+    }
+  }
+
+  // Lexxy editor overrides
+  lexxy-editor {
+    display: block;
+    width: 100%;
+    border: 1px solid $color-border;
+    border-radius: 6px;
+    overflow: hidden;
+    
+    .lexxy-content {
+      min-height: 300px;
+      padding: 0.75rem;
+      line-height: 1.5 !important;
+      
+      p {
+        margin: 0.5rem 0 !important;
+        
+        &:first-child {
+          margin-top: 0 !important;
+        }
+        
+        &:last-child {
+          margin-bottom: 0 !important;
+        }
+      }
+      
+      // Fix placeholder overflow
+      &[data-placeholder]::before {
+        color: #9ca3af;
+        font-style: italic;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+    
+    .lexxy-toolbar {
+      border-bottom: 1px solid $color-border;
+      background: $color-bg-alt;
+    }
+  }
+}
+
+/* Danger button variant */
+.btn--danger {
+  background: #dc2626;
+  color: white;
+
+  &:hover {
+    background: #b91c1c;
+  }
+}
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  padding: $space-3xl $space-lg;
+  color: $color-text-light;
+
+  p {
+    margin-bottom: $space-lg;
+    font-size: 1.1rem;
+  }
+}
+
+/* Workout Show Page */
+.admin-workout-show {
+  padding: $space-2xl 0;
+}
+
+.workout-subtitle {
+  margin: $space-xs 0 0 0;
+  color: $color-text-light;
+  font-style: italic;
+  font-size: 1.1rem;
+}
+
+.workout-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 500;
+
+  &--fallback {
+    background: #fef3c7;
+    color: #92400e;
+  }
+}
+
+.workout-content {
+  display: grid;
+  gap: $space-2xl;
+
+  @media (min-width: 960px) {
+    grid-template-columns: 1fr 300px;
+  }
+
+  &__main {
+    min-width: 0; // Prevents overflow in CSS Grid
+  }
+
+  &__sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: $space-lg;
+  }
+}
+
+.workout-display {
+  background: $color-bg;
+  border: 1px solid $color-border;
+  border-radius: 8px;
+  padding: $space-xl;
+  line-height: 1.7;
+
+  h1, h2, h3, h4, h5, h6 {
+    color: $color-text;
+    margin-top: $space-lg;
+    margin-bottom: $space-sm;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    border-bottom: 2px solid $color-primary;
+    padding-bottom: $space-xs;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    color: $color-primary;
+  }
+
+  ul, ol {
+    margin: $space-sm 0;
+    padding-left: $space-lg;
+
+    li {
+      margin: $space-xs 0;
+    }
+  }
+
+  p {
+    margin: $space-sm 0;
+  }
+}
+
+.workout-meta {
+  background: $color-bg-alt;
+  border-radius: 8px;
+  padding: $space-lg;
+
+  h3 {
+    margin: 0 0 $space-md 0;
+    font-size: 1.1rem;
+    color: $color-text;
+  }
+}
+
+.meta-item {
+  margin-bottom: $space-sm;
+  font-size: 0.95rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  strong {
+    color: $color-text;
+    display: inline-block;
+    min-width: 70px;
+  }
+}
+
+.workout-tags {
+  color: $color-primary;
+  font-family: monospace;
+}
+
+.workout-actions {
+  display: flex;
+  flex-direction: column;
+  gap: $space-sm;
+
+  .btn {
+    justify-content: center;
+  }
+}

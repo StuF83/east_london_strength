@@ -1,0 +1,61 @@
+<section class="admin-workout-form">
+  <div class="container">
+    <header class="admin-header">
+      <h1 class="admin-title">
+        Edit Workout - <%= @workout.date.strftime("%b %d, %Y") %>
+      </h1>
+      <div class="admin-actions">
+        <%= link_to "View", admin_workout_path(@workout), class: "btn btn--secondary" %>
+        <%= link_to "Back to List", admin_workouts_path, class: "btn btn--secondary" %>
+      </div>
+    </header>
+
+    <%= form_with model: [:admin, @workout], class: "workout-form" do |form| %>
+      <% if @workout.errors.any? %>
+        <div class="form-errors">
+          <h4><%= pluralize(@workout.errors.count, "error") %> prohibited this workout from being saved:</h4>
+          <ul>
+            <% @workout.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="form-group">
+        <%= form.label :date, class: "form-label" %>
+        <%= form.date_field :date, class: "form-input" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :title, "Title (optional)", class: "form-label" %>
+        <%= form.text_field :title, class: "form-input", placeholder: "e.g., Upper Body Strength" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :content, "Workout Content", class: "form-label" %>
+        <%= form.rich_text_area :content, 
+            placeholder: "Write your workout in markdown..." %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :tags, "Tags (optional)", class: "form-label" %>
+        <%= form.text_field :tags, 
+            class: "form-input", 
+            placeholder: "#strength #upper-body #beginner" %>
+        <small class="form-help">Use hashtags for organization (e.g., #strength #cardio)</small>
+      </div>
+
+      <div class="form-group form-group--checkbox">
+        <%= form.check_box :is_fallback, class: "form-checkbox" %>
+        <%= form.label :is_fallback, "Fallback workout", class: "form-label form-label--checkbox" %>
+        <small class="form-help">Use this as a backup workout when needed</small>
+      </div>
+
+      <div class="form-actions">
+        <%= form.submit "Update Workout", class: "btn" %>
+        <%= link_to "Cancel", admin_workout_path(@workout), class: "btn btn--secondary" %>
+      </div>
+    <% end %>
+  </div>
+</section>

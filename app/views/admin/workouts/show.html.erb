@@ -1,0 +1,76 @@
+<section class="admin-workout-show">
+  <div class="container">
+    <header class="admin-header">
+      <div>
+        <h1 class="admin-title">
+          <%= @workout.date.strftime("%A, %B %d, %Y") %>
+          <% if @workout.is_fallback? %>
+            <span class="workout-badge workout-badge--fallback">Fallback</span>
+          <% end %>
+        </h1>
+        <% if @workout.title.present? %>
+          <p class="workout-subtitle"><%= @workout.title %></p>
+        <% end %>
+      </div>
+      
+      <div class="admin-actions">
+        <%= link_to "Edit", edit_admin_workout_path(@workout), class: "btn" %>
+        <%= link_to "Back to List", admin_workouts_path, class: "btn btn--secondary" %>
+      </div>
+    </header>
+
+    <div class="workout-content">
+      <div class="workout-content__main">
+        <div class="workout-display">
+          <%= simple_format(@workout.content) %>
+        </div>
+      </div>
+
+      <aside class="workout-content__sidebar">
+        <div class="workout-meta">
+          <h3>Details</h3>
+          
+          <div class="meta-item">
+            <strong>Date:</strong>
+            <%= @workout.date.strftime("%B %d, %Y") %>
+          </div>
+
+          <% if @workout.tags.present? %>
+            <div class="meta-item">
+              <strong>Tags:</strong>
+              <span class="workout-tags"><%= @workout.tags %></span>
+            </div>
+          <% end %>
+
+          <div class="meta-item">
+            <strong>Type:</strong>
+            <%= @workout.is_fallback? ? "Fallback Workout" : "Regular Workout" %>
+          </div>
+
+          <div class="meta-item">
+            <strong>Created:</strong>
+            <%= @workout.created_at.strftime("%b %d, %Y at %l:%M %p") %>
+          </div>
+
+          <% if @workout.updated_at != @workout.created_at %>
+            <div class="meta-item">
+              <strong>Updated:</strong>
+              <%= @workout.updated_at.strftime("%b %d, %Y at %l:%M %p") %>
+            </div>
+          <% end %>
+        </div>
+
+        <div class="workout-actions">
+          <%= link_to "Edit Workout", edit_admin_workout_path(@workout), class: "btn btn--secondary" %>
+          <%= link_to "Delete Workout", admin_workout_path(@workout), 
+              method: :delete,
+              class: "btn btn--danger",
+              data: { 
+                "turbo-method": :delete,
+                "turbo-confirm": "Are you sure you want to delete this workout?" 
+              } %>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>

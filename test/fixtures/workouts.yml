@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2025-09-08
+  title: MyString
+  content: MyText
+  tags: MyString
+  is_fallback: false
+
+two:
+  date: 2025-09-08
+  title: MyString
+  content: MyText
+  tags: MyString
+  is_fallback: false

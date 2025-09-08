@@ -1,8 +1,8 @@
 <header class="site-header">
   <div class="container site-header__inner">
-    <h1 class="site-header__brand">
-      <%= link_to "Fieldworks Strength", root_path %>
-    </h1>
+    <%= link_to root_path do %>
+      <%= image_tag "sf_logo_bnw.png", alt: "SF Strength", class: "site-logo" %>
+    <% end %>
 
     <nav class="site-nav">
       <ul class="site-nav__list">

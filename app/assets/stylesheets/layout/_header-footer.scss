@@ -1,22 +1,35 @@
 .site-header {
   background: $color-bg;
   border-bottom: 1px solid $color-border;
-  padding: $space-md 0;
+  padding: $space-lg 0;
 
   &__inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
   }
 
   &__brand {
-    font-size: 1.25rem;
-    font-weight: 600;
 
     a {
       color: $color-text;
       text-decoration: none;
+      display: block;
     }
+  }
+}
+
+.site-logo {
+  height: 130px; // Adjust based on your logo size
+  width: auto;
+  display: block;
+  
+  // Optional: add hover effect
+  transition: opacity 0.2s ease;
+  
+  &:hover {
+    opacity: 0.8;
   }
 }
 

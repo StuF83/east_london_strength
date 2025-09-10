@@ -22,7 +22,9 @@
     <div class="workout-content">
       <div class="workout-content__main">
         <div class="workout-display">
-          <%= simple_format(@workout.content) %>
+          <div class="workout-content-display">
+            <%= @workout.content %>
+          </div>
         </div>
       </div>
 

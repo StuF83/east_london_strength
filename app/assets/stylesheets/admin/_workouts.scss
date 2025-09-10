@@ -212,6 +212,71 @@
       border-bottom: 1px solid $color-border;
       background: $color-bg-alt;
     }
+    
+    // Preview styling
+    .lexxy-preview {
+      border-left: 1px solid $color-border;
+      background: $color-bg;
+      padding: 0.75rem;
+      
+      h1, h2, h3, h4, h5, h6 {
+        color: $color-text;
+        margin-top: $space-md;
+        margin-bottom: $space-sm;
+
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+
+      h2 {
+        font-size: 1.5rem;
+        border-bottom: 2px solid $color-primary;
+        padding-bottom: $space-xs;
+      }
+
+      h3 {
+        font-size: 1.25rem;
+        color: $color-primary;
+      }
+
+      ul, ol {
+        margin: $space-sm 0;
+        padding-left: $space-lg;
+
+        li {
+          margin: $space-xs 0;
+        }
+      }
+
+      p {
+        margin: $space-sm 0;
+        color: $color-text-light;
+      }
+
+      strong {
+        color: $color-text;
+      }
+    }
+    
+    // Split view layout
+    &[data-lexxy-preview="true"] {
+      .lexxy-content-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        min-height: 400px;
+      }
+      
+      @media (max-width: 768px) {
+        .lexxy-content-wrapper {
+          grid-template-columns: 1fr;
+        }
+        
+        .lexxy-preview {
+          display: none; // Hide preview on mobile for space
+        }
+      }
+    }
   }
 }
 
@@ -363,4 +428,17 @@
   .btn {
     justify-content: center;
   }
+}
+
+.workout-preview-output {
+  border: 1px solid $color-border;
+  border-radius: 6px;
+  padding: $space-lg;
+  background: $color-bg-alt;
+  min-height: 200px;
+  
+  h1, h2, h3 { color: $color-text; margin: $space-sm 0; }
+  h2 { border-bottom: 2px solid $color-primary; padding-bottom: $space-xs; }
+  h3 { color: $color-primary; }
+  li { margin: $space-xs 0; }
 }

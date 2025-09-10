@@ -427,7 +427,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   kamal
-  lexxy
+  lexxy (~> 0.1.4.beta)
   propshaft
   puma (>= 5.0)
   rails (~> 8.0.2)

@@ -1,0 +1,151 @@
+/* Shared Workout Content Styling */
+/* Used in: admin show page, admin preview, public workout display */
+
+.workout-content-display {
+  line-height: 1.7;
+  color: $color-text-light;
+
+  h1, h2, h3, h4, h5, h6 {
+    color: $color-text;
+    margin-top: $space-lg;
+    margin-bottom: $space-sm;
+    font-weight: 600;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  h1 {
+    font-size: 1.75rem;
+    border-bottom: 3px solid $color-primary;
+    padding-bottom: $space-xs;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    border-bottom: 2px solid $color-primary;
+    padding-bottom: $space-xs;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    color: $color-primary;
+  }
+
+  h4 {
+    font-size: 1.1rem;
+    color: $color-primary;
+  }
+
+  p {
+    margin: $space-sm 0;
+    
+    &:first-child {
+      margin-top: 0;
+    }
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  ul, ol {
+    margin: $space-sm 0 $space-md 0;
+    padding-left: $space-lg;
+
+    li {
+      margin: $space-xs 0;
+      line-height: 1.6;
+    }
+
+    // Nested lists
+    ul, ol {
+      margin: $space-xs 0;
+    }
+  }
+
+  ul {
+    list-style-type: disc;
+
+    ul {
+      list-style-type: circle;
+      
+      ul {
+        list-style-type: square;
+      }
+    }
+  }
+
+  ol {
+    list-style-type: decimal;
+
+    ol {
+      list-style-type: lower-alpha;
+      
+      ol {
+        list-style-type: lower-roman;
+      }
+    }
+  }
+
+  strong, b {
+    color: $color-text;
+    font-weight: 600;
+  }
+
+  em, i {
+    font-style: italic;
+  }
+
+  blockquote {
+    border-left: 3px solid $color-primary;
+    padding-left: $space-md;
+    margin: $space-md 0;
+    font-style: italic;
+    color: $color-text-light;
+  }
+
+  code {
+    background: $color-bg-subtle;
+    padding: 0.125rem 0.25rem;
+    border-radius: 3px;
+    font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+    font-size: 0.9em;
+  }
+
+  pre {
+    background: $color-bg-subtle;
+    padding: $space-md;
+    border-radius: 6px;
+    overflow-x: auto;
+    margin: $space-md 0;
+
+    code {
+      background: none;
+      padding: 0;
+    }
+  }
+
+  hr {
+    border: none;
+    height: 1px;
+    background: $color-border;
+    margin: $space-xl 0;
+  }
+
+  // Action Text specific elements
+  action-text-attachment {
+    display: block;
+    margin: $space-md 0;
+  }
+
+  // Remove default margins on first/last elements
+  > *:first-child {
+    margin-top: 0;
+  }
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+}

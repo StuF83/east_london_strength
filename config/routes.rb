@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     root "workouts#index"
   end
 
+  # get "daily-workout", to: "workouts/today", as: :daily_workout
+
   root "pages#home"
   get "pages/about",    to: "pages#about",    as: :about
   get "pages/train_with_me", to: "pages#train_with_me", as: :train_with_me

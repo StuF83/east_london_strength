@@ -68,4 +68,4 @@ gem "dartsass-rails", "~> 0.5.1"
 gem "devise"
 
 # Rich text editor - provides markdown editing with live preview for content creation
-gem "lexxy", "~> 0.1.4.beta"
+gem "lexxy", "~> 0.1.5.beta"

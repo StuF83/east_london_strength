@@ -1,0 +1,32 @@
+<section class="page-workouts">
+  <div class="container">
+    <h1 class="page-title">Daily Workout</h1>
+    
+    <p class="workouts-intro">
+      Your daily dose of strength training. Movement-focused sessions designed to build capacity and confidence.
+    </p>
+
+    <!-- 3-Day Navigation Bar -->
+    <nav class="workout-nav" aria-label="Workout days">
+      <% [@today - 1.day, @today, @today + 1.day].each do |date| %>
+        <% day_name = case date
+                      when @today - 1.day then "Yesterday"
+                      when @today then "Today"  
+                      when @today + 1.day then "Tomorrow"
+                      end %>
+        
+        <%= link_to resources_workout_date_path(date: date.strftime('%Y-%m-%d')), 
+                    class: "workout-nav__day #{'workout-nav__day--active' if date == @current_date}",
+                    data: { turbo_frame: "workout_display" } do %>
+          <span class="workout-nav__day-name"><%= day_name %></span>
+          <span class="workout-nav__day-date"><%= date.strftime('%b %d') %></span>
+        <% end %>
+      <% end %>
+    </nav>
+
+    <!-- Workout Content (Turbo Frame) -->
+    <%= turbo_frame_tag "workout_display" do %>
+      <%= render "workout_content", workout: @current_workout, date: @current_date %>
+    <% end %>
+  </div>
+</section>

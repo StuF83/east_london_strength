@@ -8,4 +8,3 @@ pin "@rails/actiontext", to: "actiontext.esm.js"
 pin "lexxy", to: "lexxy.js"
 pin "@rails/activestorage", to: "activestorage.esm.js" # lexxy - to support attachments
 pin_all_from "app/javascript/controllers", under: "controllers"
-# pin "trix"

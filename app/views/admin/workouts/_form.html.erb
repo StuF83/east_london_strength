@@ -8,8 +8,9 @@
         <% end %>
       </div>
     </header>
-
-    <div data-controller="workout-preview" data-action="lexxy:change->workout-preview#refresh">
+    
+    <div data-controller="workout-preview" 
+         data-action="lexxy:change->workout-preview#refresh input->workout-preview#refreshDebounced change->workout-preview#refresh">
       <%= form_with model: [:admin, workout], class: "workout-form" do |form| %>
         <% if workout.errors.any? %>
           <div class="form-errors">
@@ -42,8 +43,9 @@
 
         <div class="form-group">
           <label class="form-label">Preview</label>
-          <div data-workout-preview-target="preview" class="workout-preview-output workout-content-display">
-            <!-- Live preview appears here -->
+          <div data-workout-preview-target="preview">
+            <!-- Render shared workout partial for initial preview -->
+            <%= render "/shared/workout_content", workout: workout %>
           </div>
         </div>
 
@@ -51,8 +53,8 @@
           <%= form.label :tags, "Tags (optional)", class: "form-label" %>
           <%= form.text_field :tags, 
               class: "form-input", 
-              placeholder: "#strength #upper-body #beginner" %>
-          <small class="form-help">Use hashtags for organization (e.g., #strength #cardio)</small>
+              placeholder: "upper body, strength, pushing, pulling" %>
+          <small class="form-help">Comma-separated tags for organization</small>
         </div>
 
         <div class="form-group form-group--checkbox">

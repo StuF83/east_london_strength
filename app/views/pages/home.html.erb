@@ -33,25 +33,49 @@
   </div>
 </section>
 
+<!-- NEW: Daily Workout Section -->
+<section class="daily-workout-preview">
+  <div class="container">
+    <h2 class="section-heading">Today's Workout</h2>
+    <p class="daily-workout-preview__intro">
+      Get a taste of our approach with today's training session. Each workout is designed to build movement quality and useful strength.
+    </p>
+    
+    <div class="daily-workout-preview__content">
+      <% if @today_workout %>
+        <%= render "shared/workout_content", workout: @today_workout, context: "homepage" %>
+      <% else %>
+        <div class="daily-workout-preview__placeholder">
+          <h3>Daily workouts coming soon</h3>
+          <p>We're preparing daily training sessions to complement your strength journey.</p>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="daily-workout-preview__actions">
+      <a class="btn" href="<%= about_path %>">See More Training</a>
+      <a class="btn btn--secondary" href="<%= contact_path %>">Work With Me</a>
+    </div>
+  </div>
+</section>
+
 <section class="testi-preview section">
   <div class="container">
     <h2 class="section-heading">What clients say</h2>
-
     <div class="testi-carousel" aria-label="Client testimonials">
       <article class="testi-slide">
-        <p>“Training with Stu is a real highlight of my week. Every session is challenging, enjoyable and well-planned, and I learn something new and build my fitness every single time.”</p>
+        <p>"Training with Stu is a real highlight of my week. Every session is challenging, enjoyable and well-planned, and I learn something new and build my fitness every single time."</p>
         <footer>— Kath.H., cyclist</footer>
       </article>
       <article class="testi-slide">
-        <p>“No matter what your age or fitness ability, I would highly recommend Stuart to provide a challenging, thoughtful and enjoyable program.”</p>
+        <p>"No matter what your age or fitness ability, I would highly recommend Stuart to provide a challenging, thoughtful and enjoyable program."</p>
         <footer>— Jonathan.I.</footer>
       </article>
       <article class="testi-slide">
-        <p>“Stu structures his sessions really well and takes the time to provide very constructive feedback. The sessions were very challenging and rewarding.”</p>
+        <p>"Stu structures his sessions really well and takes the time to provide very constructive feedback. The sessions were very challenging and rewarding."</p>
         <footer>— Lucas</footer>
       </article>
     </div>
-
     <div class="testi-actions">
       <a class="btn" href="<%= testimonials_path %>">Read more</a>
     </div>
@@ -61,13 +85,11 @@
 <section class="cta" aria-labelledby="cta-title">
   <div class="container cta__content">
     <h2 id="cta-title">Curious?</h2>
-    <p>If you’re looking for a more sustainable way to get stronger — without chasing numbers for their own sake — let’s talk.</p>
-
+    <p>If you're looking for a more sustainable way to get stronger — without chasing numbers for their own sake — let's talk.</p>
     <ul class="cta__bullets" role="list">
       <li>Strength work that supports everyday life and endurance goals</li>
       <li>Studio sessions in East London (Hackney)</li>
     </ul>
-
     <div class="cta__actions">
       <a class="btn" href="<%= contact_path %>">Book a call</a>
       <a class="btn btn--secondary" href="<%= about_path %>">About Stuart</a>

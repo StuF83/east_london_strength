@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   def home
+    @today_workout = Workout.find_or_fallback(Date.current)
   end
 
   def about

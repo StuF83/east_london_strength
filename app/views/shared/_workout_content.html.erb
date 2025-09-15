@@ -1,0 +1,47 @@
+<article class="workout-display">
+  <% if workout.present? %>
+    <!-- Only render header if there's something to show in it -->
+    <% if workout.title.present? || (local_assigns[:show_date] && local_assigns[:date]) || workout.is_fallback? %>
+      <header class="workout-header">
+        <% if workout.title.present? %>
+          <h2 class="workout-title"><%= workout.title %></h2>
+        <% end %>
+        
+        <% if local_assigns[:show_date] && local_assigns[:date] %>
+          <div class="workout-meta">
+            <time class="workout-date"><%= local_assigns[:date].strftime('%A, %B %d, %Y') %></time>
+            <% if workout.is_fallback? %>
+              <span class="workout-fallback-badge">Sample Workout</span>
+            <% end %>
+          </div>
+        <% elsif workout.is_fallback? %>
+          <div class="workout-meta">
+            <span class="workout-fallback-badge">Sample Workout</span>
+          </div>
+        <% end %>
+      </header>
+    <% end %>
+    
+    <div class="workout-content">
+      <% if workout.content.present? %>
+        <%= workout.content %>
+      <% else %>
+        <p class="workout-empty-content">No workout content available.</p>
+      <% end %>
+    </div>
+
+    <% if workout.tags.present? %>
+      <footer class="workout-tags">
+        <span class="workout-tags__label">Focus:</span>
+        <% workout.tags.split(',').each do |tag| %>
+          <span class="workout-tag"><%= tag.strip %></span>
+        <% end %>
+      </footer>
+    <% end %>
+  <% else %>
+    <div class="workout-empty">
+      <h2>No workout available</h2>
+      <p>Check back soon for your next training session.</p>
+    </div>
+  <% end %>
+</article>

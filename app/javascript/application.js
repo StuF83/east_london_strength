@@ -4,5 +4,3 @@ import "controllers"
 import "@rails/actiontext"
 import "lexxy"
 
-// import "trix"
-

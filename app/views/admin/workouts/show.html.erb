@@ -19,16 +19,12 @@
       </div>
     </header>
 
-    <div class="workout-content">
-      <div class="workout-content__main">
-        <div class="workout-display">
-          <div class="workout-content-display">
-            <%= @workout.content %>
-          </div>
-        </div>
+    <div class="admin-workout-content">
+      <div class="admin-workout-content__main">
+        <%= render "shared/workout_content", workout: @workout %>
       </div>
 
-      <aside class="workout-content__sidebar">
+      <aside class="admin-workout-content__sidebar">
         <div class="workout-meta">
           <h3>Details</h3>
           
@@ -36,24 +32,20 @@
             <strong>Date:</strong>
             <%= @workout.date.strftime("%B %d, %Y") %>
           </div>
-
           <% if @workout.tags.present? %>
             <div class="meta-item">
               <strong>Tags:</strong>
               <span class="workout-tags"><%= @workout.tags %></span>
             </div>
           <% end %>
-
           <div class="meta-item">
             <strong>Type:</strong>
             <%= @workout.is_fallback? ? "Fallback Workout" : "Regular Workout" %>
           </div>
-
           <div class="meta-item">
             <strong>Created:</strong>
             <%= @workout.created_at.strftime("%b %d, %Y at %l:%M %p") %>
           </div>
-
           <% if @workout.updated_at != @workout.created_at %>
             <div class="meta-item">
               <strong>Updated:</strong>

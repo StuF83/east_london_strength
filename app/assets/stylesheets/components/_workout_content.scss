@@ -1,151 +1,250 @@
-/* Shared Workout Content Styling */
-/* Used in: admin show page, admin preview, public workout display */
+/* Unified Workout Content Styling */
+/* Single source of truth for ALL workout displays: admin, public, preview */
 
-.workout-content-display {
-  line-height: 1.7;
-  color: $color-text-light;
-
-  h1, h2, h3, h4, h5, h6 {
-    color: $color-text;
-    margin-top: $space-lg;
-    margin-bottom: $space-sm;
-    font-weight: 600;
-
-    &:first-child {
-      margin-top: 0;
-    }
+.workout-display {
+  background: $color-bg;
+  border: 1px solid $color-border;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  
+  /* Modifier for compact display (homepage, etc.) */
+  &--compact {
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
   }
+}
 
-  h1 {
-    font-size: 1.75rem;
-    border-bottom: 3px solid $color-primary;
-    padding-bottom: $space-xs;
-  }
+.workout-header {
+  padding: $space-xl $space-lg $space-lg;
+  border-bottom: 1px solid #f0f0f0;
+  text-align: center;
 
-  h2 {
+  .workout-title {
     font-size: 1.5rem;
-    border-bottom: 2px solid $color-primary;
-    padding-bottom: $space-xs;
+    margin-bottom: $space-sm;
+    color: $color-text;
+    font-weight: 600;
   }
 
-  h3 {
-    font-size: 1.25rem;
-    color: $color-primary;
+  .workout-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $space-md;
+    flex-wrap: wrap;
   }
 
-  h4 {
-    font-size: 1.1rem;
-    color: $color-primary;
+  .workout-date {
+    color: $color-text-light;
+    font-size: 0.95rem;
   }
 
-  p {
-    margin: $space-sm 0;
-    
-    &:first-child {
+  .workout-fallback-badge {
+    background: #fff3cd;
+    color: #856404;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+}
+
+.workout-content {
+  padding: $space-lg;
+
+  /* All Action Text content styling */
+  .trix-content,
+  /* Legacy class support for existing content */
+  &.workout-content-display,
+  /* Direct content styling when no wrapper class */
+  & {
+    line-height: 1.7;
+    color: $color-text-light;
+
+    h1, h2, h3, h4, h5, h6 {
+      color: $color-text;
+      margin-top: $space-lg;
+      margin-bottom: $space-sm;
+      font-weight: 600;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    h1 {
+      font-size: 1.75rem;
+      border-bottom: 3px solid $color-primary;
+      padding-bottom: $space-xs;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      border-bottom: 2px solid $color-primary;
+      padding-bottom: $space-xs;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      color: $color-primary;
+    }
+
+    h4 {
+      font-size: 1.1rem;
+      color: $color-primary;
+    }
+
+    p {
+      margin: $space-sm 0;
+      
+      &:first-child {
+        margin-top: 0;
+      }
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    ul, ol {
+      margin: $space-sm 0 $space-md 0;
+      padding-left: $space-lg;
+
+      li {
+        margin: $space-xs 0;
+        line-height: 1.6;
+      }
+
+      /* Nested lists */
+      ul, ol {
+        margin: $space-xs 0;
+      }
+    }
+
+    ul {
+      list-style-type: disc;
+      
+      ul {
+        list-style-type: circle;
+        
+        ul {
+          list-style-type: square;
+        }
+      }
+    }
+
+    ol {
+      list-style-type: decimal;
+      
+      ol {
+        list-style-type: lower-alpha;
+        
+        ol {
+          list-style-type: lower-roman;
+        }
+      }
+    }
+
+    strong, b {
+      color: $color-text;
+      font-weight: 600;
+    }
+
+    em, i {
+      font-style: italic;
+    }
+
+    blockquote {
+      border-left: 3px solid $color-primary;
+      padding-left: $space-md;
+      margin: $space-md 0;
+      font-style: italic;
+      color: $color-text-light;
+    }
+
+    code {
+      background: $color-bg-subtle;
+      padding: 0.125rem 0.25rem;
+      border-radius: 3px;
+      font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+      font-size: 0.9em;
+    }
+
+    pre {
+      background: $color-bg-subtle;
+      padding: $space-md;
+      border-radius: 6px;
+      overflow-x: auto;
+      margin: $space-md 0;
+
+      code {
+        background: none;
+        padding: 0;
+      }
+    }
+
+    hr {
+      border: none;
+      height: 1px;
+      background: $color-border;
+      margin: $space-xl 0;
+    }
+
+    /* Action Text specific elements */
+    action-text-attachment {
+      display: block;
+      margin: $space-md 0;
+    }
+
+    /* Remove default margins on first/last elements */
+    > *:first-child {
       margin-top: 0;
     }
-    
-    &:last-child {
+
+    > *:last-child {
       margin-bottom: 0;
     }
   }
+}
 
-  ul, ol {
-    margin: $space-sm 0 $space-md 0;
-    padding-left: $space-lg;
+.workout-tags {
+  padding: $space-md $space-lg;
+  border-top: 1px solid #f0f0f0;
+  background: #fafafa;
+  display: flex;
+  align-items: center;
+  gap: $space-sm;
+  flex-wrap: wrap;
 
-    li {
-      margin: $space-xs 0;
-      line-height: 1.6;
-    }
-
-    // Nested lists
-    ul, ol {
-      margin: $space-xs 0;
-    }
-  }
-
-  ul {
-    list-style-type: disc;
-
-    ul {
-      list-style-type: circle;
-      
-      ul {
-        list-style-type: square;
-      }
-    }
-  }
-
-  ol {
-    list-style-type: decimal;
-
-    ol {
-      list-style-type: lower-alpha;
-      
-      ol {
-        list-style-type: lower-roman;
-      }
-    }
-  }
-
-  strong, b {
-    color: $color-text;
-    font-weight: 600;
-  }
-
-  em, i {
-    font-style: italic;
-  }
-
-  blockquote {
-    border-left: 3px solid $color-primary;
-    padding-left: $space-md;
-    margin: $space-md 0;
-    font-style: italic;
+  &__label {
+    font-size: 0.9rem;
     color: $color-text-light;
+    font-weight: 500;
+  }
+}
+
+.workout-tag {
+  background: $color-primary;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.workout-empty {
+  padding: $space-2xl;
+  text-align: center;
+  color: $color-text-light;
+
+  h2 {
+    color: $color-text;
+    margin-bottom: $space-sm;
+    font-size: 1.2rem;
   }
 
-  code {
-    background: $color-bg-subtle;
-    padding: 0.125rem 0.25rem;
-    border-radius: 3px;
-    font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
-    font-size: 0.9em;
-  }
-
-  pre {
-    background: $color-bg-subtle;
-    padding: $space-md;
-    border-radius: 6px;
-    overflow-x: auto;
-    margin: $space-md 0;
-
-    code {
-      background: none;
-      padding: 0;
-    }
-  }
-
-  hr {
-    border: none;
-    height: 1px;
-    background: $color-border;
-    margin: $space-xl 0;
-  }
-
-  // Action Text specific elements
-  action-text-attachment {
-    display: block;
-    margin: $space-md 0;
-  }
-
-  // Remove default margins on first/last elements
-  > *:first-child {
-    margin-top: 0;
-  }
-
-  > *:last-child {
-    margin-bottom: 0;
+  p {
+    font-size: 0.95rem;
   }
 }

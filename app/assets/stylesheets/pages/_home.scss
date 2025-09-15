@@ -88,6 +88,7 @@
 /* TESTIMONIALS PREVIEW                 */
 /* ------------------------------------ */
 .testi-preview {
+  background: $color-bg-subtle;
   padding: $space-2xl $space-lg;
 
   .section-heading {
@@ -163,4 +164,38 @@
 .section-heading {
   font-size: clamp(1.5rem, 3.5vw, 2rem);
   margin: 0 0 0.75rem 0;
+}
+
+/* ------------------------------------ */
+/* DAILY WORKOUT PREVIEW               */
+/* ------------------------------------ */
+.daily-workout-preview {
+  background: $color-bg;
+  padding: $space-2xl $space-lg;
+
+  .section-heading {
+    text-align: center;
+    margin-bottom: $space-sm;
+  }
+
+  &__intro {
+    max-width: 640px;
+    margin: 0 auto $space-2xl;
+    text-align: center;
+    color: $color-text-light;
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+
+  &__content {
+    max-width: 800px;
+    margin: 0 auto $space-xl;
+  }
+
+  &__actions {
+    display: flex;
+    gap: $space-sm;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 }

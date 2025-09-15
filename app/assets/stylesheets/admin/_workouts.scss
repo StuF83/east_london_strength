@@ -1,4 +1,5 @@
-/* Admin Workouts */
+/* Admin Workouts - Layout and Forms Only */
+/* Workout display styling is now in components/_workout_content.scss */
 
 .admin-workouts,
 .admin-workout-form {
@@ -213,50 +214,13 @@
       background: $color-bg-alt;
     }
     
-    // Preview styling
+    // Lexxy preview uses shared workout display styles
     .lexxy-preview {
       border-left: 1px solid $color-border;
       background: $color-bg;
-      padding: 0.75rem;
+      padding: 0; // Let .workout-content handle padding
       
-      h1, h2, h3, h4, h5, h6 {
-        color: $color-text;
-        margin-top: $space-md;
-        margin-bottom: $space-sm;
-
-        &:first-child {
-          margin-top: 0;
-        }
-      }
-
-      h2 {
-        font-size: 1.5rem;
-        border-bottom: 2px solid $color-primary;
-        padding-bottom: $space-xs;
-      }
-
-      h3 {
-        font-size: 1.25rem;
-        color: $color-primary;
-      }
-
-      ul, ol {
-        margin: $space-sm 0;
-        padding-left: $space-lg;
-
-        li {
-          margin: $space-xs 0;
-        }
-      }
-
-      p {
-        margin: $space-sm 0;
-        color: $color-text-light;
-      }
-
-      strong {
-        color: $color-text;
-      }
+      // All content styling now comes from .workout-content in the unified SCSS
     }
     
     // Split view layout
@@ -280,29 +244,7 @@
   }
 }
 
-/* Danger button variant */
-.btn--danger {
-  background: #dc2626;
-  color: white;
-
-  &:hover {
-    background: #b91c1c;
-  }
-}
-
-/* Empty state */
-.empty-state {
-  text-align: center;
-  padding: $space-3xl $space-lg;
-  color: $color-text-light;
-
-  p {
-    margin-bottom: $space-lg;
-    font-size: 1.1rem;
-  }
-}
-
-/* Workout Show Page */
+/* Admin Show Page Layout */
 .admin-workout-show {
   padding: $space-2xl 0;
 }
@@ -327,7 +269,8 @@
   }
 }
 
-.workout-content {
+/* Admin page layout grid (NOT the workout display itself) */
+.admin-workout-content {
   display: grid;
   gap: $space-2xl;
 
@@ -343,48 +286,6 @@
     display: flex;
     flex-direction: column;
     gap: $space-lg;
-  }
-}
-
-.workout-display {
-  background: $color-bg;
-  border: 1px solid $color-border;
-  border-radius: 8px;
-  padding: $space-xl;
-  line-height: 1.7;
-
-  h1, h2, h3, h4, h5, h6 {
-    color: $color-text;
-    margin-top: $space-lg;
-    margin-bottom: $space-sm;
-
-    &:first-child {
-      margin-top: 0;
-    }
-  }
-
-  h2 {
-    font-size: 1.5rem;
-    border-bottom: 2px solid $color-primary;
-    padding-bottom: $space-xs;
-  }
-
-  h3 {
-    font-size: 1.25rem;
-    color: $color-primary;
-  }
-
-  ul, ol {
-    margin: $space-sm 0;
-    padding-left: $space-lg;
-
-    li {
-      margin: $space-xs 0;
-    }
-  }
-
-  p {
-    margin: $space-sm 0;
   }
 }
 
@@ -415,11 +316,6 @@
   }
 }
 
-.workout-tags {
-  color: $color-primary;
-  font-family: monospace;
-}
-
 .workout-actions {
   display: flex;
   flex-direction: column;
@@ -430,15 +326,35 @@
   }
 }
 
+/* Form preview container - uses shared workout display inside */
 .workout-preview-output {
   border: 1px solid $color-border;
   border-radius: 6px;
-  padding: $space-lg;
   background: $color-bg-alt;
   min-height: 200px;
+  overflow: hidden;
   
-  h1, h2, h3 { color: $color-text; margin: $space-sm 0; }
-  h2 { border-bottom: 2px solid $color-primary; padding-bottom: $space-xs; }
-  h3 { color: $color-primary; }
-  li { margin: $space-xs 0; }
+  // All workout content styling comes from unified SCSS
+}
+
+/* Danger button variant */
+.btn--danger {
+  background: #dc2626;
+  color: white;
+
+  &:hover {
+    background: #b91c1c;
+  }
+}
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  padding: $space-3xl $space-lg;
+  color: $color-text-light;
+
+  p {
+    margin-bottom: $space-lg;
+    font-size: 1.1rem;
+  }
 }

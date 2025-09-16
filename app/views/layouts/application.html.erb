@@ -25,7 +25,12 @@
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
-    <%= stylesheet_link_tag "lexxy" %>
+
+    <%# Only load Lexxy CSS on workout form pages %>
+    <% if controller_name == 'workouts' && (action_name == 'new' || action_name == 'edit') %>
+      <%= stylesheet_link_tag "lexxy", "data-turbo-track": "reload" %>
+    <% end %>
+    
     <%= javascript_importmap_tags %>
   </head>
 

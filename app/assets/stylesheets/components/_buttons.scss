@@ -1,3 +1,5 @@
+/* Button Components - All button styles centralized here */
+
 .btn {
   display: inline-block;
   background: $color-primary;
@@ -7,7 +9,10 @@
   text-decoration: none;
   font-weight: 600;
   transition: background 0.2s ease;
-
+  text-align: left;
+  border: none;
+  cursor: pointer;
+  
   &:hover {
     background: $color-primary-dark;
   }
@@ -17,8 +22,22 @@
   background: transparent;
   color: $color-text;
   border: 1px solid $color-border;
-
+  
   &:hover {
     background: rgba(0, 0, 0, 0.04);
   }
+}
+
+.btn--danger {
+  background: #dc2626;
+  color: white;
+  
+  &:hover {
+    background: #b91c1c;
+  }
+}
+
+.btn--small {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
 }

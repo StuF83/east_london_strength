@@ -320,10 +320,6 @@
   display: flex;
   flex-direction: column;
   gap: $space-sm;
-
-  .btn {
-    justify-content: center;
-  }
 }
 
 /* Form preview container - uses shared workout display inside */
@@ -335,16 +331,6 @@
   overflow: hidden;
   
   // All workout content styling comes from unified SCSS
-}
-
-/* Danger button variant */
-.btn--danger {
-  background: #dc2626;
-  color: white;
-
-  &:hover {
-    background: #b91c1c;
-  }
 }
 
 /* Empty state */

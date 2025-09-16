@@ -18,12 +18,10 @@
         <%= link_to "Back to List", admin_workouts_path, class: "btn btn--secondary" %>
       </div>
     </header>
-
     <div class="admin-workout-content">
       <div class="admin-workout-content__main">
         <%= render "shared/workout_content", workout: @workout %>
       </div>
-
       <aside class="admin-workout-content__sidebar">
         <div class="workout-meta">
           <h3>Details</h3>
@@ -53,9 +51,37 @@
             </div>
           <% end %>
         </div>
-
-        <div class="workout-actions">
+        <div class="workout-actions" 
+             data-controller="workout-copy"
+             data-workout-copy-id-value="<%= @workout.id %>"
+             data-workout-copy-existing-dates-url-value="<%= existing_dates_admin_workouts_path %>">
           <%= link_to "Edit Workout", edit_admin_workout_path(@workout), class: "btn btn--secondary" %>
+          <button type="button" 
+                  class="btn"
+                  data-action="click->workout-copy#showDatePicker">
+            Copy Workout
+          </button>
+          
+          <!-- Hidden copy form that will be revealed when date is selected -->
+          <div class="copy-confirmation" 
+               data-workout-copy-target="confirmation"
+               style="display: none;">
+            <%= form_with url: admin_workouts_path, method: :post, local: true, 
+                         data: { "workout-copy-target" => "form" } do |form| %>
+              <%= form.hidden_field :source_workout_id, value: @workout.id %>
+              <%= form.hidden_field :date, data: { "workout-copy-target" => "dateField" } %>
+              <div class="copy-confirmation__content">
+                <p>Copy to: <span data-workout-copy-target="selectedDate"></span></p>
+                <%= form.submit "Confirm Copy", class: "btn btn--primary btn--small" %>
+                <button type="button" 
+                        class="btn btn--secondary btn--small"
+                        data-action="click->workout-copy#cancel">
+                  Cancel
+                </button>
+              </div>
+            <% end %>
+          </div>
+          
           <%= link_to "Delete Workout", admin_workout_path(@workout), 
               method: :delete,
               class: "btn btn--danger",

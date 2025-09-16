@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   namespace :admin do
-    resources :workouts
+    resources :workouts do
+      collection do
+        get :existing_dates  # AJAX endpoint for copy feature
+      end
+    end
     root "workouts#index"
   end
 
